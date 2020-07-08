@@ -1,0 +1,19 @@
+.pagin-button {
+    width: auto;
+    margin: 0 5px;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 3px;
+    font-size: small;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.pagin-input {
+    width: 50px;
+    margin: 0 5px 0 20px;
+}
+
+.pagin-jump-button {
+
+}

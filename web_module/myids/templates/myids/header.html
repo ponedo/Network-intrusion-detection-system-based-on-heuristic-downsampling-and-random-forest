@@ -1,0 +1,22 @@
+<div id="header">
+    <h1 id='header-title'>MYIDS</h1>
+    <div id="header-nav">
+        <ul>
+            <a class="header-nav-link" href="{% url 'myids:index' %}">
+                <li class='header-nav-item' id="overview-link">
+                    Overview
+                </li>
+            </a>
+            <a class="header-nav-link" href="{% url 'myids:stat' %}">
+                <li class='header-nav-item' id="statistic-link">
+                    Statistic
+                </li>
+            </a>
+            <a class="header-nav-link" href="{% url 'myids:conn' %}">
+                <li class='header-nav-item' id="connection-link">
+                    Connection
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>

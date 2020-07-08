@@ -1,0 +1,46 @@
+#mainbody-title {
+    width: 100%;
+    overflow: hidden;
+}
+
+#mainbody-title-left {
+    margin-left: 5%;
+    float: left;
+}
+
+#mainbody-title-text {
+    margin: 0;
+    margin-top: 10px;
+}
+
+#mainbody-title-timeline {
+    margin: 0;
+}
+
+#mainbody-title-right {
+    margin-right: 5%;
+    float: right;
+}
+
+#mainbody-title-time-query {
+    margin: auto 0;
+    border: 2px dotted lightgray;
+    text-align: center;
+    overflow: hidden;
+}
+
+#from-datetime {
+    margin: 5px auto;
+}
+
+#from-datetime span {
+    white-space: pre;
+}
+
+#to-datetime {
+    margin: 5px auto;
+}
+
+#to-datetime span {
+    white-space: pre;
+}

@@ -1,0 +1,24 @@
+.condition-container {
+    margin: 5px 5%;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.added-container {
+    margin: 20px 10px;
+    border: 1px dotted gray;
+}
+
+.border-title{
+    display: inline-block;
+    width: auto;
+    height: 30px;
+    position: relative;
+    top: -12px;
+    text-align: center;
+    background: white;
+}
+
+.panel-control-button {
+    margin-left: 5%;
+}

@@ -1,0 +1,42 @@
+#mainbody-panels {
+    width: 100%;
+    height: 65%;
+}
+
+.header-nav-link #overview-link {
+    background-color: lightpink;
+}
+
+.chart-container {
+    width: 30%;
+    height: 45%;
+    border: white solid 5px;
+    border-radius: 20px;
+    padding: 5px 5px;
+    background-color: lightgray;
+    display: inline-block;
+}
+
+.chart-title {
+    padding: 5px;
+    overflow: hidden;
+}
+
+.chart-title-text {
+    float: left;
+    display: block-inline;
+}
+
+.chart-title-link {
+    float: right;
+    display: block-inline;
+}
+
+.pie-container {
+    width: auto;
+    height: 85%;
+    border-radius: 15px;
+	max-width: 800px;
+	min-width: 320px;
+	margin: 0 auto;
+}

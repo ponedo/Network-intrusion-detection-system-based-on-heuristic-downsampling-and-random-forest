@@ -1,0 +1,18 @@
+.header-nav-link #connection-link {
+    background-color: lightpink;
+}
+
+#mainbody-table-container {
+    text-align: center;
+    width: 95%;
+    height: 60%;
+    margin: 5% auto;
+}
+
+#mainbody-table-container th {
+    font-size: small;
+}
+
+#mainbody-table-container td {
+    font-size: small;
+}

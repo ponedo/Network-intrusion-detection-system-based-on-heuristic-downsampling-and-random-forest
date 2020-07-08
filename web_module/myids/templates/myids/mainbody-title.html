@@ -1,0 +1,51 @@
+<div id="mainbody-title">
+    <div id="mainbody-title-left">
+        <h1 id="mainbody-title-text">{{title_name}}</h1>
+        <h4 id="mainbody-title-timeline">Queried from {{start_time}} to {{end_time}}</h4>
+    </div>
+    <div id="mainbody-title-right">
+        <form id="mainbody-title-time-query" method="post" action="{% url query_url %}">
+            {% csrf_token %}
+            <span>Change query time:</span>
+            <div id="from-datetime"><span>from</span>
+                <select class='select-year' name='from-year'></select>
+                <select class='select-month' name='from-month'></select>
+                <select class='select-day' name='from-day'></select>
+                <select class='select-hour' name='from-hour'></select>
+                :
+                <select class='select-minute' name='from-minute'></select>
+                :
+                <select class='select-second' name='from-second'></select>
+            </div>
+            <div id="to-datetime"><span>  to  </span>
+                <select class='select-year' name='to-year'></select>
+                <select class='select-month' name='to-month'></select>
+                <select class='select-day' name='to-day'></select>
+                <select class='select-hour' name='to-hour'></select>
+                :
+                <select class='select-minute' name='to-minute'></select>
+                :
+                <select class='select-second' name='to-second'></select>
+            </div>
+            <input id="submit-button" type="submit" value="query">
+            <script>
+                $("#submit-button").click(function() {
+                    start_time = 
+                        $("#from-datetime").find(".select-year").val() + '-' + 
+                        $("#from-datetime").find(".select-month").val() + '-' + 
+                        $("#from-datetime").find(".select-day").val() + ' ' +
+                        $("#from-datetime").find(".select-hour").val() + ':' +
+                        $("#from-datetime").find(".select-minute").val() + ':' +
+                        $("#from-datetime").find(".select-second").val();
+                    end_time = 
+                        $("#to-datetime").find(".select-year").val() + '-' + 
+                        $("#to-datetime").find(".select-month").val() + '-' + 
+                        $("#to-datetime").find(".select-day").val() + ' ' +
+                        $("#to-datetime").find(".select-hour").val() + ':' +
+                        $("#to-datetime").find(".select-minute").val() + ':' +
+                        $("#to-datetime").find(".select-second").val();
+                })
+            </script>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+    <head>
+        <title>myids</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/highcharts.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/header.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/mainbody-title.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/table.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/pagin.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/condition.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/conn.css' %}">
+
+        <script src="{% static 'myids/js/resource/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/resource/highcharts.js' %}" type="text/javascript"></script>
+
+        <script src="{% static 'myids/js/select_datetime.js' %}" type="text/javascript"></script>
+        <script>
+            var condition = "{{condition}}";
+            condition = condition == "null" ? null : condition;
+            var start_time = "{{start_time}}";
+            var end_time = "{{end_time}}";
+            var page_data_url = "{% url 'myids:query_conn' %}";
+            var page_size = 10;
+        </script>
+        <script src="{% static 'myids/js/conn.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/conn-condition.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/pagin.js' %}" type="text/javascript"></script>
+    </head>
+
+    <body>
+        
+        <!-- header -->
+        {% include 'myids/header.html' %}
+
+        <!--main body-->
+        {% include 'myids/mainbody-title.html' with title_name='Connection' query_url='myids:conn' %}
+        {% include 'myids/condition.html' %}
+
+        <div id="mainbody-table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Protocol</th>
+                        <th>Src_ip</th>
+                        <th>Src_port</th>
+                        <th>Dest_ip</th>
+                        <th>Dest_port</th>
+                        <th>Service</th>
+                        <th>Duration</th>
+                        <th>Orig_bytes</th>
+                        <th>Resp_bytes</th>
+                        <th>Orig_packets</th>
+                        <th>Resp_packets</th>
+                        <th>alert</th>
+                    </tr>
+                </thead>
+                <tbody id="mainbody-table-body"></tbody>
+            </table>
+            <div id="mainbody-pagination"></div>
+        </div>
+        
+    </body>
+</html>

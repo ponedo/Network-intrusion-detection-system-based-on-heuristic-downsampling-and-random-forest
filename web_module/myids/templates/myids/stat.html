@@ -1,0 +1,98 @@
+{% load static %}
+<html>
+    <head>
+        <title>myids</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/highcharts.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/header.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/mainbody-title.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/table.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/pagin.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/stat.css' %}">
+
+        <script src="{% static 'myids/js/resource/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/resource/highcharts.js' %}" type="text/javascript"></script>
+
+        <script src="{% static 'myids/js/render.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/queryStat.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/pagin.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/select_datetime.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/stat_switch.js' %}" type="text/javascript"></script>
+        <script>
+            var start_time = "{{start_time}}";
+            var end_time = "{{end_time}}";
+            var query_stat_url = "{% url 'myids:query_stat' %}";
+            var conn_url = "{% url 'myids:conn' %}";
+            var overviewPageSize = 6;
+            var detailPageSize = 10;
+        </script>
+        
+    </head>
+
+    <body>
+
+        <!-- header -->
+        {% include 'myids/header.html' %}
+
+        <!--main body-->
+        {% include 'myids/mainbody-title.html' with title_name='Statistics' query_url='myids:stat' %}
+
+        <div id="mainbody-switch">
+            <ul>
+                <li class="mainbody-switch-item" id="alert-switch">alert</li>
+                <li class="mainbody-switch-item" id="proto-switch">proto</li>
+                <li class="mainbody-switch-item" id="src_ip-switch">src_ip</li>
+                <li class="mainbody-switch-item" id="dest_ip-switch">dest_ip</li>
+                <li class="mainbody-switch-item" id="src_port-switch">src_port</li>
+                <li class="mainbody-switch-item" id="dest_port-switch">dest_port</li>
+            </ul>
+        </div>
+
+        <div id="mainbody-panel">
+            <div id="stat-overview-panel">
+                <span id="stat-overview-title"></span>
+                <div class="chart-container">
+                    <div class="pie-container" id="stat-pie-container"></div>
+                    <div class="line-container" id="stat-line-container"></div>
+                </div>
+                <div id="stat-overview-container">
+                    <table id="stat-overview-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="pagination"></div>
+                </div>
+            </div>
+        
+            <div id="stat-detail-panel">
+                <div id="stat-detail-header">
+                    <span id="stat-detail-title"></span>
+                    <span class="back-button">back to overview</span>
+                </div>
+                <div id="stat-detail-container">
+                    <table id="stat-detail-table">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="pagination"></div>
+                </div>
+            </div>
+        
+            <script>
+                $("#stat-detail-panel").hide();
+                $("#stat-overview-title").text("Alert overview (Charts show only top 10)");
+                loadPie("stat-pie-container", "alert");
+                loadLine("stat-line-container", "alert");
+                loadStatOverview($("#stat-overview-table"), "alert", 1, overviewPageSize);
+                $(".back-button").click(function () {
+                    var detailPanel = $("#stat-detail-panel");
+                    var overviewPanel = $("#stat-overview-panel");
+                    detailPanel.hide();
+                    overviewPanel.show();
+                });
+            </script>
+            
+        
+        </div>
+
+    </body>
+</html>

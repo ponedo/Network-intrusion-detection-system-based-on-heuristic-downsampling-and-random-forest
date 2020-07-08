@@ -1,0 +1,42 @@
+#header {
+    width: 99%;
+    height: 12%;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    background-color: dodgerblue;
+    border-bottom: 5px lightblue;
+}
+
+#header-title {
+    margin: 0;
+    margin-top: 15px;
+    padding-left: 20px;
+    font-size: 40px;
+    color: white;
+    float: left;
+}
+
+#header-nav {
+    width: 50%;
+    height: 85%;
+    float: right;
+}
+
+.header-nav-link {
+    text-decoration: none;
+}
+
+.header-nav-item {
+    width: 31%;
+    height: 40px;
+    color: white;
+    border: 3px solid white;
+    list-style: none;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.header-nav-item:hover {
+    background-color: #9999ff;
+}

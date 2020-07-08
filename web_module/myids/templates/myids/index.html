@@ -1,0 +1,47 @@
+{% load static %}
+<html>
+    <head>
+        <title>myids</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/highcharts.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/header.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/mainbody-title.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myids/css/index.css' %}">
+
+        <script src="{% static 'myids/js/resource/jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/resource/highcharts.js' %}" type="text/javascript"></script>
+
+        <script src="{% static 'myids/js/render.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/queryStat.js' %}" type="text/javascript"></script>
+        <script src="{% static 'myids/js/select_datetime.js' %}" type="text/javascript"></script>
+        <script>
+            var start_time = "{{start_time}}";
+            var end_time = "{{end_time}}";
+            var query_stat_url = "{% url 'myids:query_stat' %}";
+        </script>
+    </head>
+    <body>
+        
+        <!-- header -->
+        {% include 'myids/header.html' %}
+
+        <!--main body-->
+        {% include 'myids/mainbody-title.html' with title_name='Current Overview' query_url='myids:index' %}
+        
+        <div id="mainbody-panels">
+            {% for data_type in data_types %}
+                <div class='chart-container'>
+                    <div class='chart-title'>
+                        <div class='chart-title-text'>{{data_type}} (top 10)</div>
+                        <a class='chart-title-link'>more stats...</a>
+                    </div>
+                    <div class="pie-container" id="{{data_type}}-pie-container">
+                        <script>
+                            loadPie("{{data_type}}-pie-container", "{{data_type}}", start_time, end_time);
+                        </script>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<div class="condition-container">
+    <span class="border-title">Search filter</span>
+
+    <div class="added-container">
+        <span class="border-title">Added conjunction</span>
+        <div class="added-conjunction"></div>
+        <button class="add-condition-button">Submit query condition</button>
+    </div>
+    
+    <div class="added-container">
+        <span class="border-title">Added atomic</span>
+        <div class="added-atomic"></div>
+        <button class="add-conjunction-button">Add Conjunction</button>
+    </div>
+
+    <div class="to-add-atomic-condition">
+        <table class="add-atomic-table">
+            <tr>
+                <td>col</td>
+                <td>operator</td>
+                <td>compared value</td>
+            </tr>
+            <tr>
+                <td>
+                    <select class="select-cols"></select>
+                </td>
+                <td>
+                    <select class="select-operator">
+                        <option>=</option>
+                        <option>&lt</option>
+                        <option>&gt</option>
+                        <option>&lt=</option>
+                        <option>&gt=</option>
+                        <option>IN</option>
+                    </select>
+                </td>
+                <td><input class="cmp-value-input"></td>
+            </tr>
+        </table>
+        <button class="add-atomic-button">Add atomic</button>
+    </div>
+</div>
+<button class="panel-control-button">SEARCH</button>
